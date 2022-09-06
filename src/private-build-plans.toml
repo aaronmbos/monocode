@@ -71,4 +71,4 @@ css = "italic"
 
 [buildPlans.monocode.metric-override]
 xHeight = 552
-leading = 1240
+leading = 1250
