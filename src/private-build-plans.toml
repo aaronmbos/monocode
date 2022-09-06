@@ -1,0 +1,74 @@
+[buildPlans.monocode]
+family = "Monocode"
+spacing = "fixed"
+serifs = "sans"
+no-cv-ss = true
+export-glyph-names = false
+
+  [buildPlans.monocode.variants]
+  inherits = "ss14"
+
+    [buildPlans.monocode.variants.design]
+    f = "flat-hook"
+    i = "serifed-flat-tailed"
+    l = "serifed"
+    zero = "long-dotted"
+    one = "no-base"
+    two = "curly-neck"
+    four = "semi-open"
+    seven = "curly-serifless"
+    at = "fourfold"
+    dollar = "interrupted"
+    cent = "bar-interrupted"
+    percent = "rings-segmented-slash"
+    punctuation-dot = "square"
+
+    [buildPlans.monocode.variants.italic]
+    a = "single-storey-tailed"
+    f = "flat-hook-extended"
+
+[buildPlans.monocode.weights.light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.monocode.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.monocode.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.monocode.weights.semibold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.monocode.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.monocode.widths.normal]
+shape = 600
+menu = 5
+css = "normal"
+
+[buildPlans.monocode.slopes.upright]
+angle = 0
+shape = "upright"
+menu = "upright"
+css = "normal"
+
+[buildPlans.monocode.slopes.italic]
+angle = 9.4
+shape = "italic"
+menu = "italic"
+css = "italic"
+
+[buildPlans.monocode.metric-override]
+xHeight = 552
+leading = 1240
