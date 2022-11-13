@@ -22,6 +22,7 @@ export-glyph-names = false
     cent = "bar-interrupted"
     percent = "rings-segmented-slash"
     punctuation-dot = "square"
+    brace = "curly-flat-boundary"
 
     [buildPlans.monocode.variants.italic]
     a = "single-storey-tailed"
