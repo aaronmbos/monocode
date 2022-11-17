@@ -71,5 +71,5 @@ menu = "italic"
 css = "italic"
 
 [buildPlans.monocode.metric-override]
-xHeight = 552
+xHeight = 524
 leading = 1250
