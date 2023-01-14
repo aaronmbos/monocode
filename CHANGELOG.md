@@ -9,8 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
-- Lower overall x-height slightly
-- Update lowercase `f` crossbar to be equal to x-height instead of below
+## [2.0.0] - 2023-01-13
+
+- Increased x-height to previous value
+- Update `i`
+- Update `k`
+- Update `0`
+- Update `2`
+- Update `7`
 
 ## [1.2.0] - 2022-11-13
 
