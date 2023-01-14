@@ -9,24 +9,23 @@ export-glyph-names = false
   inherits = "ss14"
 
     [buildPlans.monocode.variants.design]
-    f = "flat-hook"
-    i = "serifed-flat-tailed"
+    i = "hooky"
+    k = "straight-serifless"
     l = "serifed"
-    zero = "long-dotted"
+    r = "serifless"
     one = "no-base"
-    two = "curly-neck"
     four = "semi-open"
-    seven = "curly-serifless"
+    seven = "bend-serifless"
+    brace = "curly-flat-boundary"
     at = "fourfold"
     dollar = "interrupted"
-    cent = "bar-interrupted"
     percent = "rings-segmented-slash"
     punctuation-dot = "square"
-    brace = "curly-flat-boundary"
 
     [buildPlans.monocode.variants.italic]
     a = "single-storey-tailed"
     f = "flat-hook-extended"
+    i = "hooky"
 
 [buildPlans.monocode.weights.light]
 shape = 300
@@ -71,5 +70,5 @@ menu = "italic"
 css = "italic"
 
 [buildPlans.monocode.metric-override]
-xHeight = 524
+xHeight = 551
 leading = 1250
