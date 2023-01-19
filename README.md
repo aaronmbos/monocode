@@ -14,6 +14,12 @@ Monocode comes in five different weights ranging from Light to Bold for both Reg
 
 ![Monocode Weights](./images/monocode-weights.png)
 
+## Powerline Characters
+
+Monocode comes built with the glyphs required for Powerline shell prompts
+
+![Monocode Powerline](./images/monocode-powerline.png)
+
 ## Distinct Characters
 
 Monocode distinguishes characters that are prone to legibility issues like capital O and zero.
