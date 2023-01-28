@@ -9,10 +9,12 @@ export-glyph-names = false
   inherits = "ss14"
 
     [buildPlans.monocode.variants.design]
+    g = "double-storey-open"
     i = "hooky"
     k = "straight-serifless"
     l = "serifed"
     r = "serifless"
+    y = "straight-turn"
     one = "no-base"
     four = "semi-open"
     seven = "bend-serifless"
@@ -25,7 +27,8 @@ export-glyph-names = false
     [buildPlans.monocode.variants.italic]
     a = "single-storey-tailed"
     f = "flat-hook-extended"
-    i = "hooky"
+    i = "tailed-serifed"
+    l = "tailed-serifed"
 
 [buildPlans.monocode.weights.light]
 shape = 300
@@ -70,5 +73,5 @@ menu = "italic"
 css = "italic"
 
 [buildPlans.monocode.metric-override]
-xHeight = 551
+xHeight = 550
 leading = 1250
