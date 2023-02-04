@@ -31,7 +31,7 @@ lig-double-arrow-bar = "without-notch"
 [buildPlans.monocode.variants.italic]
 d = "tailed-serifless"
 e = "flat-crossbar"
-f = "flat-hook-extended"
+f = "flat-hook-extended-crossbar-at-x-height"
 i = "serifed-flat-tailed"
 k = "straight-serifless"
 l = "serifed-flat-tailed"
