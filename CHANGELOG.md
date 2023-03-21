@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use double-story lowercase g
 - Use default Iosevka characters for lowercase and uppercase w and k
 - Update to Iosevka 21.0
+- Update to more rounded parens
 
 ## [2.0.0] - 2023-01-13
 
