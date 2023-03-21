@@ -3,29 +3,37 @@ family = "Monocode"
 spacing = "fixed"
 serifs = "sans"
 no-cv-ss = true
-export-glyph-names = false
+export-glyph-names = true
 
-  [buildPlans.monocode.variants]
-  inherits = "ss14"
+[buildPlans.monocode.variants.design]
+capital-g = "toothless-rounded-serifless-hooked"
+capital-j = "flat-hook-serifed"
+f = "flat-hook-crossbar-at-x-height"
+g = "double-storey-open"
+i = "hooky"
+j = "flat-hook-serifed"
+l = "serifed"
+t = "flat-hook-short-neck"
+u = "toothless-rounded"
+y = "straight-turn"
+zero = "long-dotted"
+two = "straight-neck"
+three = "flat-top"
+seven = "bend-serifless"
+brace = "curly-flat-boundary"
+number-sign = "slanted"
+ampersand = "upper-open"
+question = "corner-flat-hooked"
+punctuation-dot = "square"
+lig-double-arrow-bar = "without-notch"
 
-    [buildPlans.monocode.variants.design]
-    i = "hooky"
-    k = "straight-serifless"
-    l = "serifed"
-    r = "serifless"
-    one = "no-base"
-    four = "semi-open"
-    seven = "bend-serifless"
-    brace = "curly-flat-boundary"
-    at = "fourfold"
-    dollar = "interrupted"
-    percent = "rings-segmented-slash"
-    punctuation-dot = "square"
-
-    [buildPlans.monocode.variants.italic]
-    a = "single-storey-tailed"
-    f = "flat-hook-extended"
-    i = "hooky"
+[buildPlans.monocode.variants.italic]
+d = "tailed-serifless"
+e = "flat-crossbar"
+f = "flat-hook-extended-crossbar-at-x-height"
+i = "serifed-flat-tailed"
+k = "straight-serifless"
+l = "serifed-flat-tailed"
 
 [buildPlans.monocode.weights.light]
 shape = 300
@@ -70,5 +78,5 @@ menu = "italic"
 css = "italic"
 
 [buildPlans.monocode.metric-override]
-xHeight = 551
-leading = 1250
+ascender = 750
+xHeight = 540
