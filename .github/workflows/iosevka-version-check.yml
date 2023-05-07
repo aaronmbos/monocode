@@ -23,8 +23,7 @@ jobs:
         run: |
           monocode_iosevka_version=$(cat .iosevka-version)
           echo "Monocode currently using Iosevka version: ${monocode_iosevka_version}"
-        env:
-          MONOCODE_IOSEVKA_VERSION: ${{ steps.get-monocode-iosevka-version.outputs.monocode_iosevka_version }}
+          echo "MONOCODE_IOSEVKA_VERSION=${monocode_iosevka_version}" >> $GITHUB_ENV
 
       - name: Get latest Iosevka release
         run: |
@@ -34,8 +33,7 @@ jobs:
           -s)
           iosevka_version=$(echo $res | jq -r '.tag_name')
           echo "Latest Iosevka release: ${iosevka_version}"
-        env:
-          IOSEVKA_VERSION: ${{ steps.get-latest-iosevka-release.outputs.iosevka_version }}
+          echo "IOSEVKA_VERSION=${iosevka_version}" >> $GITHUB_ENV
 
       - name: Compare versions
         run: |
