@@ -19,20 +19,30 @@ jobs:
       - name: Install jq
         run: sudo apt-get install jq
 
-      - name: Check Monocode's Iosevka version against latest release
+      - name: Get Monocode's current Iosevka version
         run: |
           monocode_iosevka_version=$(cat .iosevka-version)
           echo "Monocode currently using Iosevka version: ${monocode_iosevka_version}"
+        env:
+          MONOCODE_IOSEVKA_VERSION: ${{ steps.get-monocode-iosevka-version.outputs.monocode_iosevka_version }}
+
+      - name: Get latest Iosevka release
+        run: |
           res=$(curl --request GET \
           --url https://api.github.com/repos/be5invis/Iosevka/releases/latest \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           -s)
           iosevka_version=$(echo $res | jq -r '.tag_name')
           echo "Latest Iosevka release: ${iosevka_version}"
-          if [ "$monocode_iosevka_version" != "$iosevka_version" ]; then
+        env:
+          IOSEVKA_VERSION: ${{ steps.get-latest-iosevka-release.outputs.iosevka_version }}
+
+      - name: Compare versions
+        run: |
+          if [ "$MONOCODE_IOSEVKA_VERSION" != "$IOSEVKA_VERSION" ]; then
             echo "Monocode is out of date with latest Iosevka release."
             exit 1
           else
-            echo "Monocode is update to date with Iosevka version: ${iosevka_version}"
+            echo "Monocode is update to date with Iosevka version: $IOSEVKA_VERSION"
             exit 0
           fi
