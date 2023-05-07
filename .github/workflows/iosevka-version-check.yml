@@ -37,3 +37,16 @@ jobs:
           -s)
           iosevka_version=$(echo $res | jq -r '.tag_name')
           echo "Latest Iosevka release: ${iosevka_version}"
+
+      - name: Compare versions
+        run: |
+          if [ "$monocode_iosevka_version" != "$iosevka_version" ]; then
+            echo "Iosevka version mismatch!"
+            echo "Monocode is using Iosevka version: ${monocode_iosevka_version}"
+            echo "Latest Iosevka release: ${iosevka_version}"
+            echo "Please update .iosevka-version file."
+            exit 1
+          else
+            echo "Monocode is update to date with Iosevka version: ${iosevka_version}"
+            exit 0
+          fi
