@@ -1,6 +1,5 @@
 name: Iosevka Version Check
 
-# Controls when the workflow will run
 on:
   # At 11:00 UTC on every day-of-week from Sunday through Saturday.
   schedule:
@@ -9,42 +8,29 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-out your repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v3
 
       - name: Install jq
         run: sudo apt-get install jq
 
-      - name: Get Monocode's current Iosevka version
+      - name: Check Monocode's Iosevka version against latest release
         run: |
           monocode_iosevka_version=$(cat .iosevka-version)
           echo "Monocode currently using Iosevka version: ${monocode_iosevka_version}"
-
-      - name: Get latest Iosevka release
-        run: |
           res=$(curl --request GET \
           --url https://api.github.com/repos/be5invis/Iosevka/releases/latest \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           -s)
           iosevka_version=$(echo $res | jq -r '.tag_name')
           echo "Latest Iosevka release: ${iosevka_version}"
-
-      - name: Compare versions
-        run: |
           if [ "$monocode_iosevka_version" != "$iosevka_version" ]; then
-            echo "Iosevka version mismatch!"
-            echo "Monocode is using Iosevka version: ${monocode_iosevka_version}"
-            echo "Latest Iosevka release: ${iosevka_version}"
-            echo "Please update .iosevka-version file."
+            echo "Monocode is out of date with latest Iosevka release."
             exit 1
           else
             echo "Monocode is update to date with Iosevka version: ${iosevka_version}"
