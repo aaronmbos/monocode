@@ -24,7 +24,7 @@ jobs:
       - name: Clone Iosevka
         run: |
           cd ..
-          monocode_iosevka_version=$(cat .iosevka-version)
+          monocode_iosevka_version=$(cat ./monocode/.iosevka-version)
           git clone --depth 1 https://github.com/be5invis/Iosevka.git
           cd Iosevka
           git fetch --tags
