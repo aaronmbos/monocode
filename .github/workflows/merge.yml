@@ -23,6 +23,7 @@ jobs:
 
       - name: Clone Iosevka
         run: |
+          cd ..
           monocode_iosevka_version=$(cat .iosevka-version)
           git clone --depth 1 https://github.com/be5invis/Iosevka.git
           cd Iosevka
@@ -31,6 +32,7 @@ jobs:
 
       - name: npm install, build
         run: |
+          cd ../Iosevka
           ls -a
 
       # - name: Upload artifact for deployment job
