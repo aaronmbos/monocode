@@ -35,10 +35,18 @@ jobs:
 
       - name: Build Monocode
         run: |
+          ls / -a
           cd ../Iosevka
           cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
-          npm install
-          npm run build -- ttf::monocode
+          mkdir dist/monocode/ttf
+          touch dist/monocode/ttf/test.txt
+
+      # - name: Build Monocode
+      #   run: |
+      #     cd ../Iosevka
+      #     cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
+      #     npm install
+      #     npm run build -- ttf::monocode
 
       - name: Upload Monocode ttf files
         uses: actions/upload-artifact@v3
