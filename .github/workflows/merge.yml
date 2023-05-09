@@ -33,7 +33,9 @@ jobs:
       - name: npm install, build
         run: |
           cd ../Iosevka
-          ls -a
+          cp ../monocode/private-build-plans.toml ./private-build-plans.toml
+          npm install
+          npm run build -- ttf::monocode
 
       # - name: Upload artifact for deployment job
       #   uses: actions/upload-artifact@v3
