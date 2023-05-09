@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Install ttfautohint
+        run: sudo apt-get install ttfautohint
+
       - name: Clone Iosevka
         run: |
           cd ..
