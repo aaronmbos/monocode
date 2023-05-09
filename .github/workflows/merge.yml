@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Monocode
         run: |
-          ls ~ -a
+          pwd
           cd ../Iosevka
           cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
           mkdir dist/monocode/ttf
