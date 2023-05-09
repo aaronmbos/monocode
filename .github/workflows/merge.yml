@@ -21,35 +21,27 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      # - name: Install ttfautohint
-      #   run: sudo apt-get install ttfautohint
+      - name: Install ttfautohint
+        run: sudo apt-get install ttfautohint
 
-      # - name: Clone Iosevka
-      #   run: |
-      #     cd ..
-      #     monocode_iosevka_version=$(cat ./monocode/.iosevka-version)
-      #     git clone --depth 1 https://github.com/be5invis/Iosevka.git
-      #     cd Iosevka
-      #     git fetch --tags --quiet
-      #     git checkout tags/${monocode_iosevka_version}
+      - name: Clone Iosevka
+        run: |
+          cd ..
+          monocode_iosevka_version=$(cat ./monocode/.iosevka-version)
+          git clone --depth 1 https://github.com/be5invis/Iosevka.git
+          cd Iosevka
+          git fetch --tags --quiet
+          git checkout tags/${monocode_iosevka_version}
 
       - name: Build Monocode
         run: |
-          pwd
           cd ../Iosevka
           cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
-          mkdir dist/monocode/ttf
-          touch dist/monocode/ttf/test.txt
-
-      # - name: Build Monocode
-      #   run: |
-      #     cd ../Iosevka
-      #     cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
-      #     npm install
-      #     npm run build -- ttf::monocode
+          npm install
+          npm run build -- ttf::monocode
 
       - name: Upload Monocode ttf files
         uses: actions/upload-artifact@v3
         with:
           name: build-output
-          path: /Iosevka/dist/monocode/
+          path: /home/runner/work/monocode/Iosevka/dist/monocode/
