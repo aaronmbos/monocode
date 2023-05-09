@@ -30,18 +30,18 @@ jobs:
           monocode_iosevka_version=$(cat ./monocode/.iosevka-version)
           git clone --depth 1 https://github.com/be5invis/Iosevka.git
           cd Iosevka
-          git fetch --tags
+          git fetch --tags --quiet
           git checkout tags/${monocode_iosevka_version}
 
-      - name: npm install, build
+      - name: Build Monocode
         run: |
           cd ../Iosevka
           cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
           npm install
           npm run build -- ttf::monocode
 
-      # - name: Upload artifact for deployment job
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: node-app
-      #     path: .
+      - name: Upload Monocode ttf files
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: ../Iosevka/dist/monocode/
