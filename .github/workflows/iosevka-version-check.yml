@@ -22,8 +22,11 @@ jobs:
       - name: Get Monocode's current Iosevka version
         run: |
           monocode_iosevka_version=$(cat .iosevka-version)
+          monocode_version=$(cat .version)
           echo "Monocode currently using Iosevka version: ${monocode_iosevka_version}"
+          echo "Current Monocode version: ${monocode_version}"
           echo "MONOCODE_IOSEVKA_VERSION=${monocode_iosevka_version}" >> $GITHUB_ENV
+          echo "MONOCODE_VERSION=${monocode_version}" >> $GITHUB_ENV
 
       - name: Get latest Iosevka release
         run: |
@@ -39,7 +42,50 @@ jobs:
         run: |
           if [ "$MONOCODE_IOSEVKA_VERSION" != "$IOSEVKA_VERSION" ]; then
             echo "Monocode is out of date with latest Iosevka release."
-            exit 1
+            git fetch --quiet
+            git checkout -b monocode-update-${IOSEVKA_VERSION} origin/main
+
+            major_monocode_iosevka=$(echo $MONOCODE_IOSEVKA_VERSION | sed 's/v\([0-9]\+\)\..*/\1/')
+            minor_monocode_iosevka=$(echo $MONOCODE_IOSEVKA_VERSION | sed 's/v[0-9]\+\.\([0-9]\+\)\..*/\1/')
+            patch_monocode_iosevka=$(echo $MONOCODE_IOSEVKA_VERSION | sed 's/v[0-9]\+\.[0-9]\+\.\([0-9]\+\)/\1/')
+
+            major_iosevka=$(echo $IOSEVKA_VERSION | sed 's/v\([0-9]\+\)\..*/\1/')
+            minor_iosevka=$(echo $IOSEVKA_VERSION | sed 's/v[0-9]\+\.\([0-9]\+\)\..*/\1/')
+            patch_iosevka=$(echo $IOSEVKA_VERSION | sed 's/v[0-9]\+\.[0-9]\+\.\([0-9]\+\)/\1/')
+
+            major_diff=$(($major_iosevka - $major_monocode_iosevka))
+            minor_diff=$(($minor_iosevka - $minor_monocode_iosevka))
+            patch_diff=$(($patch_iosevka - $patch_monocode_iosevka))
+
+            major_monocode=$(echo $MONOCODE_VERSION | sed 's/v\([0-9]\+\)\..*/\1/')
+            minor_monocode=$(echo $MONOCODE_VERSION | sed 's/v[0-9]\+\.\([0-9]\+\)\..*/\1/')
+            patch_monocode=$(echo $MONOCODE_VERSION | sed 's/v[0-9]\+\.[0-9]\+\.\([0-9]\+\)/\1/')
+
+            updated_major=$(($major_monocode + $major_diff))
+            updated_minor=$(($minor_monocode + $minor_diff))
+            updated_patch=$(($patch_monocode + $patch_diff))
+
+            updated_version="v${updated_major}.${updated_minor}.${updated_patch}"
+            sed -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$updated_version/" .version
+
+            git add .version
+
+            sed -i "/^## \[Unreleased\]/a\\
+            \n\\
+            ## $updated_version - $(date +'%Y-%m-%d')\n\\
+            \n\n\\
+            Updating to latest version of Iosevka: ${IOSEVKA_VERSION}.\n\\
+            " ./CHANGELOG.md
+
+            git add CHANGELOG.md
+            git commit -m "Update to Iosevka version: ${IOSEVKA_VERSION}"
+            git push origin monocode-update-${IOSEVKA_VERSION}
+
+            git checkout main
+            git merge monocode-update-${IOSEVKA_VERSION}
+            git push origin main
+
+            exit 0
           else
             echo "Monocode is update to date with Iosevka version: $IOSEVKA_VERSION"
             exit 0
