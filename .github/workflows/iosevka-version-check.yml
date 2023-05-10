@@ -70,12 +70,14 @@ jobs:
 
             git add .version
 
-            sed -i "/^## \[Unreleased\]/a\\
-            \n\\
-            ## $updated_version - $(date +'%Y-%m-%d')\n\\
-            \n\n\\
-            Updating to latest version of Iosevka: ${IOSEVKA_VERSION}.\n\\
-            " ./CHANGELOG.md
+            changelog_file="./CHANGELOG.md"
+            sed -i "/^## \[Unreleased]/a\\
+            \\
+            \\
+            ## $updated_version - $(date +'%Y-%m-%d')\\
+            \\
+            - Updating to latest version of Iosevka: ${IOSEVKA_VERSION}\\
+            " $changelog_file
 
             git add CHANGELOG.md
             git commit -m "Update to Iosevka version: ${IOSEVKA_VERSION}"
