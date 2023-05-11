@@ -45,3 +45,14 @@ jobs:
         with:
           name: build-output
           path: /home/runner/work/monocode/Iosevka/dist/monocode/
+
+      - name: Create release
+        if: ${{ steps.checkout.outputs.modified_files.contains('.version') }}
+        run: |
+          monocode_version=$(cat .version)
+
+          git config --global user.email "aaronmbos@gmail.com"
+          git config --global user.name "Aaron Bos"
+
+          git tag -a ${monocode_version} -m "Monocode ${monocode_version}"
+          git push origin ${monocode_version}

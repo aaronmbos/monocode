@@ -42,6 +42,10 @@ jobs:
         run: |
           if [ "$MONOCODE_IOSEVKA_VERSION" != "$IOSEVKA_VERSION" ]; then
             echo "Monocode is out of date with latest Iosevka release."
+
+            git config --global user.email "aaronmbos@gmail.com"
+            git config --global user.name "Aaron Bos"
+
             git fetch --quiet
             git checkout -b monocode-update-${IOSEVKA_VERSION} origin/main
 
