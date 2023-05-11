@@ -92,6 +92,8 @@ jobs:
             git merge monocode-update-${IOSEVKA_VERSION}
             git push origin main
 
+            # - uses: ./.github/workflow/merge.yml
+
             exit 0
           else
             echo "Monocode is update to date with Iosevka version: $IOSEVKA_VERSION"
