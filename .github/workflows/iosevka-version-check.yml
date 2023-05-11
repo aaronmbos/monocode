@@ -71,8 +71,9 @@ jobs:
 
             updated_version="v${updated_major}.${updated_minor}.${updated_patch}"
             sed -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$updated_version/" .version
+            set -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$IOSEVKA_VERSION/" .iosevka-version
 
-            git add .version
+            git add .version .iosevka-version
 
             changelog_file="./CHANGELOG.md"
             sed -i "/^## \[Unreleased]/a\\
