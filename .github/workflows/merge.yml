@@ -56,9 +56,11 @@ jobs:
             .version
 
       - name: Create tag
+        id: create_tag
         if: steps.check-file.outputs.any_modified == 'true'
         run: |
           monocode_version=$(cat .version)
+          echo "tag=${monocode_version}" >> GITHUB_OUTPUT
 
           git config --global user.email "aaronmbos@gmail.com"
           git config --global user.name "Aaron Bos"
@@ -70,9 +72,8 @@ jobs:
         if: steps.check-file.outputs.any_modified == 'true'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${monocode_version}
-          release_name: ${monocode_version}
+          tag_name: steps.create_tag.outputs.tag
+          release_name: steps.create_tag.outputs.tag
           body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
           files: |
             /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
-            /home/runner/work/monocode/Iosevka/dist/monocode/ttf-unhinted/*.ttf
