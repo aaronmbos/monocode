@@ -106,5 +106,4 @@ jobs:
           git branch -d monocode-update-${IOSEVKA_VERSION}
 
   call-merge:
-    if: steps.compare-versions.outputs.file_changed == 'true'
     uses: ./.github/workflows/merge.yml
