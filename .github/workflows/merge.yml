@@ -60,7 +60,7 @@ jobs:
         if: steps.check-file.outputs.any_modified == 'true'
         run: |
           monocode_version=$(cat .version)
-          echo "tag=${monocode_version}" >> GITHUB_OUTPUT
+          echo "tag=${monocode_version}" >> $GITHUB_OUTPUT
 
           git config --global user.email "aaronmbos@gmail.com"
           git config --global user.name "Aaron Bos"
