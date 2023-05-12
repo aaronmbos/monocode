@@ -43,15 +43,13 @@ jobs:
         run: |
           if [ "$MONOCODE_IOSEVKA_VERSION" != "$IOSEVKA_VERSION" ]; then
             echo "new_version=true" >> $GITHUB_OUTPUT
-            echo "NEW_VERSION=true" >> $GITHUB_ENV
           else
             echo "Monocode is update to date with Iosevka version: $IOSEVKA_VERSION"
-            echo "NEW_VERSION=false" >> $GITHUB_ENV
             exit 0
           fi
 
       - name: Update Version and Changelog
-        if: steps.compare-versions.outputs. == 'true'
+        if: steps.compare-versions.outputs.new_version == 'true'
         run: |
           echo "Monocode is out of date with latest Iosevka release."
 
