@@ -47,18 +47,14 @@ jobs:
           path: /home/runner/work/monocode/Iosevka/dist/monocode/
 
       - name: Check if File Changed
+        uses: tj-actions/changed-files@v35
         id: check-file
-        run: |
-          if git diff HEAD^ HEAD --quiet -- .version; then
-            echo "Monocode version unchanged. No release created."
-            echo ::set-output name=file_changed::false
-          else
-            echo "Monocode version changed. Creating release."
-            echo ::set-output name=file_changed::true
-          fi
+        with:
+          files: |
+            .version
 
-      - name: Create release
-        if: steps.check-file.outputs.file_changed == 'true'
+      - name: Create tag
+        if: steps.check-file.outputs.any_modified == 'true'
         run: |
           monocode_version=$(cat .version)
 
@@ -68,11 +64,13 @@ jobs:
           git tag -a ${monocode_version} -m "Monocode ${monocode_version}"
           git push origin ${monocode_version}
 
-          # uses: uses: softprops/action-gh-release@v1
-          # with:
-          #   tag_name: ${monocode_version}
-          #   release_name: ${monocode_version}
-          #   body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
-          #   files: |
-          #     /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
-          #     /home/runner/work/monocode/Iosevka/dist/monocode/ttf-unhinted/*.ttf
+      - name: Create release
+        if: steps.check-file.outputs.any_modified == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${monocode_version}
+          release_name: ${monocode_version}
+          body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
+          files: |
+            /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
+            /home/runner/work/monocode/Iosevka/dist/monocode/ttf-unhinted/*.ttf
