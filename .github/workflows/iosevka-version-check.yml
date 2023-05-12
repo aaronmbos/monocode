@@ -91,7 +91,7 @@ jobs:
           \\
           ## $updated_version - $(date +'%Y-%m-%d')\\
           \\
-          - Updating to latest version of Iosevka: ${IOSEVKA_VERSION}\\
+          - Updating to latest version of Iosevka: ${IOSEVKA_VERSION}
           " $changelog_file
 
           git add CHANGELOG.md
@@ -106,4 +106,5 @@ jobs:
           git branch -d monocode-update-${IOSEVKA_VERSION}
 
   call-merge:
+    needs: build
     uses: ./.github/workflows/merge.yml
