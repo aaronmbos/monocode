@@ -72,8 +72,8 @@ jobs:
         if: steps.check-file.outputs.any_modified == 'true'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: steps.create_tag.outputs.tag
-          release_name: steps.create_tag.outputs.tag
+          tag_name: ${{ steps.create_tag.outputs.tag }}
+          release_name: ${{ steps.create_tag.outputs.tag }}
           body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
           files: |
             /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
