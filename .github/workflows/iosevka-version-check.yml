@@ -89,7 +89,6 @@ jobs:
           changelog_file="./CHANGELOG.md"
           sed -i "/^## \[Unreleased]/a\\
           \\
-          \\
           ## $updated_version - $(date +'%Y-%m-%d')\\
           \\
           - Updating to latest version of Iosevka: ${IOSEVKA_VERSION}\\
