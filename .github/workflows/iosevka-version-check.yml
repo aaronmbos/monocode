@@ -102,6 +102,7 @@ jobs:
           git merge monocode-update-${IOSEVKA_VERSION}
           git push origin main
 
+          git push -d origin monocode-update-${IOSEVKA_VERSION}
           git branch -d monocode-update-${IOSEVKA_VERSION}
 
   call-merge:
