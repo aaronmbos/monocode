@@ -103,6 +103,8 @@ jobs:
           git merge monocode-update-${IOSEVKA_VERSION}
           git push origin main
 
+          git branch -d monocode-update-${IOSEVKA_VERSION}
+
       - name: Run merge workflow
         if: steps.compare-versions.outputs.file_changed == 'true'
         uses: ./.github/workflows/merge.yml
