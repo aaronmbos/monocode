@@ -82,7 +82,7 @@ jobs:
           updated_version="v${updated_major}.${updated_minor}.${updated_patch}"
           iosevka_version="v${major_iosevka}.${minor_iosevka}.${patch_iosevka}"
           sed -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$updated_version/" .version
-          set -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$iosevka_version/" .iosevka-version
+          sed -i "s/^v[0-9]\+\.[0-9]\+\.[0-9]\+/$iosevka_version/" .iosevka-version
 
           git add .version .iosevka-version
 
