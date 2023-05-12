@@ -51,7 +51,7 @@ jobs:
           fi
 
       - name: Update Version and Changelog
-        if: steps.compare-versions.outputs.new_version == 'true'
+        if: steps.compare-versions.outputs. == 'true'
         run: |
           echo "Monocode is out of date with latest Iosevka release."
 
@@ -100,14 +100,4 @@ jobs:
           git commit -m "Update to Iosevka version: ${IOSEVKA_VERSION}"
           git push origin monocode-update-${IOSEVKA_VERSION}
 
-          git checkout main
-          git merge monocode-update-${IOSEVKA_VERSION}
-          git push origin main
-
-          git push -d origin monocode-update-${IOSEVKA_VERSION}
-          git branch -d monocode-update-${IOSEVKA_VERSION}
-
-  call-merge:
-    needs: build
-    if: ${{ env.NEW_VERSION == 'true' }}
-    uses: ./.github/workflows/merge.yml
+          gh create pr --title "Update to Iosevka version: ${IOSEVKA_VERSION}" --body "Updating to latest version of Iosevka: ${IOSEVKA_VERSION}" --base main --head monocode-update-${IOSEVKA_VERSION} --repo aaronbos/monocode
