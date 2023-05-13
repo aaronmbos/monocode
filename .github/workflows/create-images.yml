@@ -47,6 +47,7 @@ jobs:
           monocode.jpg
 
           cp ./monocode.jpg /home/runner/work/monocode/monocode/images
+          cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode.jpg
 
       - name: Commit and push images
