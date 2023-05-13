@@ -56,5 +56,5 @@ jobs:
           git config --local user.email "aaronmbos@gmail.com"
           git config --local user.name "Aaron Bos"
 
-          git commmit -m "Update images"
+          git commit -m "Update images"
           git push
