@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir -p /home/runner/work/monocode/images
           cd /home/runner/work/monocode/images
-          convert -size 1200x630 xc:'#' -gravity center \
+          convert -size 1200x630 xc:'#1a1b26' -gravity center \
           -font monocode -pointsize 144 -annotate 0 \
           "<<<tspan font-weight='light' fill='#c0caf5'>Mo</tspan><tspan font-weight='regular' fill='#c0caf5'>no</tspan><tspan font-weight='semi-bold' font-style='normal' fill='#c0caf5'>co</tspan><tspan font-weight='bold' fill='#c0caf5'>de</tspan>>>" \
           monocode.jpg
