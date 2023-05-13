@@ -29,11 +29,6 @@ jobs:
           name: build-output
           path: /home/runner/work/monocode/fonts
 
-      - name: Unzip output
-        run: |
-          cd /home/runner/work/monocode/fonts
-          unzip -o build-output.zip
-
       - name: Install font
         run: |
           cd /home/runner/work/monocode/fonts/ttf
