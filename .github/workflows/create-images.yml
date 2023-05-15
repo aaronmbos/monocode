@@ -51,7 +51,7 @@ jobs:
           -annotate +0+150 "A font for [{code}]" \
           monocode.png
 
-          cp ./monocode.jpg /home/runner/work/monocode/monocode/images
+          cp ./monocode.png /home/runner/work/monocode/monocode/images
           cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode.png
 
