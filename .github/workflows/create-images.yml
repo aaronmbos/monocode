@@ -113,7 +113,7 @@ jobs:
 
           status=$(git status --porcelain)
 
-          if [ -z "$status" ]; then
+          if [[ -z "$status" ]]; then
             echo "No changes to commit"
             exit 0
           fi
