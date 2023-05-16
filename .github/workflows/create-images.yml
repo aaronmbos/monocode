@@ -55,11 +55,38 @@ jobs:
           cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode.png
 
+      - name: Generate specimen image
+        run: |
+          cd /home/runner/work/monocode/images
+          convert -size 1200x630 xc:'#1a1b26' -gravity north -font Monocode -pointsize 256 -fill '#c0caf5' \
+          -draw "text 0,10 'Aa'" \
+          -gravity center \
+          -font Monocode -pointsize 60 -fill '#c0caf5' \
+          -draw "text 0,40 'ABCDEFGHIJKLMNOPQRSTUVWXYZ 01234'" \
+          -gravity center \
+          -font Monocode -pointsize 60 -fill '#c0caf5' \
+          -draw "text 0,120 'abcdefghijklmnopqrstuvwxyz 56789'" \
+          -gravity center \
+          -font Monocode -pointsize 60 -fill '#c0caf5' \
+          -draw "text 0,210 '{}[]()<>\`~!@#$%^&*?,.;:\'\"-_+=|\/'" \
+          monocode-specimen.png
+
+          cp ./monocode-specimen.png /home/runner/work/monocode/monocode/images
+          cd /home/runner/work/monocode/monocode
+          git add /home/runner/work/monocode/monocode/images/monocode-specimen.png
+
       - name: Commit and push images
         run: |
           cd /home/runner/work/monocode/monocode
           git config --local user.email "aaronmbos@gmail.com"
           git config --local user.name "Aaron Bos"
+
+          status=$(git status --porcelain)
+
+          if [ -z "$status" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
 
           git commit -m "Update images"
           git push

@@ -18,6 +18,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Check build plan changes
+        uses: tj-actions/changed-files@v35
+        id: check-build-plan
+        with:
+          files: |
+            src/private-build-plans.toml
+
+      - name: Build plan changed
+        if: steps.check-build-plan.outputs.any_modified != 'true'
+        run: |
+          echo "No build plan changes detected. Exiting."
+          exit 0
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -48,16 +61,16 @@ jobs:
           name: build-output
           path: /home/runner/work/monocode/Iosevka/dist/monocode/
 
-      - name: Check if File Changed
+      - name: Check Monocode version change
         uses: tj-actions/changed-files@v35
-        id: check-file
+        id: check-monocode-version
         with:
           files: |
             .version
 
       - name: Create tag
         id: create_tag
-        if: steps.check-file.outputs.any_modified == 'true'
+        if: steps.check-monocode-version.outputs.any_modified == 'true'
         run: |
           monocode_version=$(cat .version)
           echo "tag=${monocode_version}" >> $GITHUB_OUTPUT
@@ -69,7 +82,7 @@ jobs:
           git push origin ${monocode_version}
 
       - name: Create release
-        if: steps.check-file.outputs.any_modified == 'true'
+        if: steps.check-monocode-version.outputs.any_modified == 'true'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.create_tag.outputs.tag }}
