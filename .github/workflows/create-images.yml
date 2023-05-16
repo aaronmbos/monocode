@@ -44,10 +44,10 @@ jobs:
           convert -size 1200x630 xc:'#1a1b26' -gravity center -font Monocode-Semibold -pointsize 144 -fill '#c0caf5' \
           -draw "text 0,-150 'Monocode'" \
           -gravity center \
-          -font Monocode -pointsize 72 -fill '#c0caf5' \
+          -font Monocode-Italic -pointsize 72 -fill '#73daca' \
           -draw "text 0,0 'printf(\"hello, world\")'" \
           -gravity center \
-          -font Monocode -pointsize 86 -fill '#c0caf5' \
+          -font Monocode -pointsize 86 -fill '#7dcfff' \
           -annotate +0+150 "A font for [{code}]" \
           monocode.png
 
@@ -74,6 +74,36 @@ jobs:
           cp ./monocode-specimen.png /home/runner/work/monocode/monocode/images
           cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode-specimen.png
+
+      - name: Generate weights image
+        run: |
+          cd /home/runner/work/monocode/images
+          convert -size 1200x630 xc:'#1a1b26' \
+          -gravity north -font Monocode-Light -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,20 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Light-Italic -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,80 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,140 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Italic -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,200 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Medium -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,260 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Medium-Italic -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,320 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Semibold -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,380 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Semibold-Italic -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,440 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Bold -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,500 'A quick brown fox jumps over the lazy dog'" \
+          -gravity north -font Monocode-Bold-Italic -pointsize 45 -fill '#c0caf5' \
+          -draw "text 0,560 'A quick brown fox jumps over the lazy dog'" \
+          monocode-weights.png
+
+          cp ./monocode-weights.png /home/runner/work/monocode/monocode/images
+          cd /home/runner/work/monocode/monocode
+          git add /home/runner/work/monocode/monocode/images/monocode-weights.png
 
       - name: Commit and push images
         run: |

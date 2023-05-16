@@ -26,10 +26,13 @@ jobs:
             src/private-build-plans.toml
 
       - name: Build plan changed
-        if: steps.check-build-plan.outputs.any_modified != 'true'
         run: |
-          echo "No build plan changes detected. Exiting."
-          exit 0
+          if [ ${{steps.check-build-plan.outputs.any_modified}} == 'true']; then
+            echo "Build plan changes detected. Continuing."
+          else
+            echo "No build plan changes detected. Exiting."
+            exit 0
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
