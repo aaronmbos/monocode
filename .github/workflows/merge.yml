@@ -27,7 +27,7 @@ jobs:
 
       - name: Build plan changed
         run: |
-          if [ ${{steps.check-build-plan.outputs.any_modified}} == 'true']; then
+          if [[ "${{ steps.check-build-plan.outputs.any_modified }}" == "true" ]]; then
             echo "Build plan changes detected. Continuing."
           else
             echo "No build plan changes detected. Exiting."
