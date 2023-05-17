@@ -1,12 +1,10 @@
 name: Merge
 
 on:
-  push:
-    branches: ["main"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Allows you to call this workflow from another workflow
   workflow_call:
 
 env:
@@ -77,3 +75,7 @@ jobs:
           body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
           files: |
             /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
+
+  call-create-images-workflow:
+    uses: ./.github/workflows/create-images.yml
+    needs: build
