@@ -18,25 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check build plan changes
-        uses: tj-actions/changed-files@v35
-        id: check-build-plan
-        with:
-          files: |
-            src/private-build-plans.toml
-
       - name: Set up Node.js
-        if: steps.check-build-plan.outputs.any_modified == 'true'
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install ttfautohint
-        if: steps.check-build-plan.outputs.any_modified == 'true'
         run: sudo apt-get install ttfautohint
 
       - name: Clone Iosevka
-        if: steps.check-build-plan.outputs.any_modified == 'true'
         run: |
           cd ..
           monocode_iosevka_version=$(cat ./monocode/.iosevka-version)
@@ -46,7 +36,6 @@ jobs:
           git checkout tags/${monocode_iosevka_version}
 
       - name: Build Monocode
-        if: steps.check-build-plan.outputs.any_modified == 'true'
         run: |
           cd ../Iosevka
           cp ../monocode/src/private-build-plans.toml ./private-build-plans.toml
@@ -54,7 +43,6 @@ jobs:
           npm run build -- ttf::monocode
 
       - name: Upload Monocode ttf files
-        if: steps.check-build-plan.outputs.any_modified == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: build-output
