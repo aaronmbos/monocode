@@ -1,10 +1,12 @@
 name: Merge
 
 on:
+  push:
+    branches: ["main"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Allows you to call this workflow from another workflow
   workflow_call:
 
 env:
