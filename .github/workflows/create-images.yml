@@ -121,6 +121,22 @@ jobs:
           cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode-powerline.png
 
+      - name: Generate distinct image
+        run: |
+          cd /home/runner/work/monocode/images
+          convert -size 1200x630 xc:'#1a1b26' \
+          -gravity north -font Monocode -pointsize 160 -fill '#c0caf5' \
+          -draw "text 0,25 '0O  Il  1l'" \
+          -gravity center -font Monocode -pointsize 160 -fill '#c0caf5' \
+          -draw "text 0,0 'Z2  B8  71'" \
+          -gravity south -font Monocode -pointsize 160 -fill '#c0caf5' \
+          -draw "text 0,25 '6G  ;:  S5'" \
+          monocode-distinct.png
+
+          cp ./monocode-distinct.png /home/runner/work/monocode/monocode/images
+          cd /home/runner/work/monocode/monocode
+          git add /home/runner/work/monocode/monocode/images/monocode-distinct.png
+
       - name: Commit and push image changes
         run: |
           cd /home/runner/work/monocode/monocode
