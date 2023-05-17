@@ -44,10 +44,10 @@ jobs:
           convert -size 1200x630 xc:'#1a1b26' -gravity center -font Monocode-Semibold -pointsize 144 -fill '#c0caf5' \
           -draw "text 0,-150 'Monocode'" \
           -gravity center \
-          -font Monocode-Italic -pointsize 72 -fill '#73daca' \
+          -font Monocode-Light-Italic -pointsize 72 -fill '#73daca' \
           -draw "text 0,0 'printf(\"hello, world\")'" \
           -gravity center \
-          -font Monocode -pointsize 86 -fill '#7dcfff' \
+          -font Monocode-Medium -pointsize 86 -fill '#7dcfff' \
           -annotate +0+150 "A font for [{code}]" \
           monocode.png
 
@@ -104,6 +104,22 @@ jobs:
           cp ./monocode-weights.png /home/runner/work/monocode/monocode/images
           cd /home/runner/work/monocode/monocode
           git add /home/runner/work/monocode/monocode/images/monocode-weights.png
+
+      - name: Generate powerline image
+        run: |
+          cd /home/runner/work/monocode/images
+          convert -size 1200x630 xc:'#1a1b26' \
+          -gravity north -font Monocode -pointsize 80 -fill '#c0caf5' \
+          -draw "text 0,75 '     '" \
+          -gravity center -font Monocode -pointsize 80 -fill '#c0caf5' \
+          -draw "text 0,0 '       '" \
+          -gravity south -font Monocode -pointsize 80 -fill '#c0caf5' \
+          -draw "text 0,75 '       '" \
+          monocode-powerline.png
+
+          cp ./monocode-powerline.png /home/runner/work/monocode/monocode/images
+          cd /home/runner/work/monocode/monocode
+          git add /home/runner/work/monocode/monocode/images/monocode-powerline.png
 
       - name: Commit and push image changes
         run: |
