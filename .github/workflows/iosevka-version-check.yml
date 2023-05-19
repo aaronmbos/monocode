@@ -75,9 +75,19 @@ jobs:
           minor_monocode=$(echo $MONOCODE_VERSION | sed 's/v[0-9]\+\.\([0-9]\+\)\..*/\1/')
           patch_monocode=$(echo $MONOCODE_VERSION | sed 's/v[0-9]\+\.[0-9]\+\.\([0-9]\+\)/\1/')
 
-          updated_major=$(($major_monocode + $major_diff))
-          updated_minor=$(($minor_monocode + $minor_diff))
-          updated_patch=$(($patch_monocode + $patch_diff))
+          if [ $major_diff -gt 0 ]; then
+            updated_major=$(($major_monocode + $major_diff))
+            updated_minor=0
+            updated_patch=0
+          elif [ $minor_diff -gt 0 ]; then
+            updated_major=$major_monocode
+            updated_minor=$(($minor_monocode + $minor_diff))
+            patch_diff=0
+          else
+            updated_major=$major_monocode
+            updated_minor=$minor_monocode
+            updated_patch=$(($patch_monocode + $patch_diff))
+          fi
 
           updated_version="v${updated_major}.${updated_minor}.${updated_patch}"
           iosevka_version="v${major_iosevka}.${minor_iosevka}.${patch_iosevka}"
