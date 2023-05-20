@@ -39,14 +39,13 @@ jobs:
         run: |
           mkdir -p /home/runner/work/monocode/images
           cd /home/runner/work/monocode/images
-          convert -size 1200x630 xc:'#1a1b26' -gravity center -font Monocode-Semibold -pointsize 144 -fill '#c0caf5' \
-          -draw "text 0,-150 'Monocode'" \
-          -gravity center \
-          -font Monocode-Light-Italic -pointsize 72 -fill '#73daca' \
+          convert -size 1200x630 xc:'#1a1b26' \
+          -gravity north -font Monocode-Semibold -pointsize 144 -fill '#c0caf5' \
+          -draw "text 0,50 'Monocode'" \
+          -gravity center -font Monocode-Light-Italic -pointsize 72 -fill '#73daca' \
           -draw "text 0,0 'printf(\"hello, world\")'" \
-          -gravity center \
-          -font Monocode-Medium -pointsize 86 -fill '#7dcfff' \
-          -annotate +0+150 "A font for [{code}]" \
+          -gravity south -font Monocode-Medium -pointsize 96 -fill '#7dcfff' \
+          -draw "text 0,75 'A font for [{code}]'" \
           monocode.png
 
           cp ./monocode.png /home/runner/work/monocode/monocode/images
