@@ -110,4 +110,4 @@ jobs:
           git commit -m "Update to Iosevka version: ${IOSEVKA_VERSION}"
           git push origin monocode-update-${IOSEVKA_VERSION}
 
-          gh pr create --title "Update to Iosevka version: ${IOSEVKA_VERSION}" --body "Updating to latest version of Iosevka: ${IOSEVKA_VERSION}" --base main --head monocode-update-${IOSEVKA_VERSION} --repo aaronbos/monocode
+          gh pr create --title "Update to Iosevka version: ${IOSEVKA_VERSION}" --body "Updating to latest version of Iosevka: ${IOSEVKA_VERSION}" --base main --head monocode-update-${IOSEVKA_VERSION}
