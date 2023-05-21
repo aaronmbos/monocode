@@ -50,6 +50,8 @@ jobs:
 
       - name: Update Version and Changelog
         if: steps.compare-versions.outputs.new_version == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Monocode is out of date with latest Iosevka release."
 
