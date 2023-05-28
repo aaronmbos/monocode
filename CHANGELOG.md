@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v6.0.1] - 2023-05-28
+
+- Iosevka v24.0.0 included character variant naming changes. This release
+  updates the font to use the new names.
+- Affected characters variants include 'f', 'y', and 'u'.
+
 ## [v6.0.0] - 2023-05-28
 
 - Updating to latest version of Iosevka: v24.0.0
