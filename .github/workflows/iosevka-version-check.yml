@@ -84,7 +84,7 @@ jobs:
           elif [ $minor_diff -gt 0 ]; then
             updated_major=$major_monocode
             updated_minor=$(($minor_monocode + $minor_diff))
-            patch_diff=0
+            updated_patch=0
           else
             updated_major=$major_monocode
             updated_minor=$minor_monocode
