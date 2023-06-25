@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v6.1.4] - 2023-06-25
+
+- Updating to latest version of Iosevka: v24.1.4
+
 ## [v6.1.3] - 2023-06-12
 
 - Updating to latest version of Iosevka: v24.1.3
