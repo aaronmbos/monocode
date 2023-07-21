@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v8.0.0] - 2023-07-20
+
+- Updated characters
+  - capital-q = "crossing"
+  - capital-w = "straight-flat-top-serifless"
+  - k = "symmetric-connected-serifless"
+  - w = "straight-flat-top-serifless"
+  - six = "open-contour"
+  - nine = "open-contour"
+
+- Characters now using Iosevka defaults
+  - `u`
+  - `y`
+  - `7`
+
 ## [v7.0.1] - 2023-07-10
 
 - Updating to latest version of Iosevka: v25.0.1
