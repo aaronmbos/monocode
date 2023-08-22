@@ -72,3 +72,8 @@ angle = 9.4
 shape = "italic"
 menu = "italic"
 css = "italic"
+
+[buildPlans.monocode.widths.normal]
+shape = 500
+menu = 5
+css = "normal"
