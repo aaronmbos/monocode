@@ -11,6 +11,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updating Monocode to use the Iosevka defaults for `6` and `9` [#22](https://github.com/aaronmbos/monocode/issues/22)
 
+## [v10.3.5] - 2023-11-12
+
+- Updating to latest version of Iosevka: v27.3.5
+
+## [v10.3.4] - 2023-11-05
+
+- Updating to latest version of Iosevka: v27.3.4
+
+## [v10.3.3] - 2023-10-30
+
+- Updating to latest version of Iosevka: v27.3.3
+
+## [v10.3.2] - 2023-10-29
+
+- Updating to latest version of Iosevka: v27.3.2
+
+## [v10.3.1] - 2023-10-23
+
+- Updating to latest version of Iosevka: v27.3.1
+
+## [v10.3.0] - 2023-10-22
+
+- Updating to latest version of Iosevka: v27.3.0
+
+## [v10.2.1] - 2023-10-15
+
+- Updating to latest version of Iosevka: v27.2.1
+
 ## [v10.2.0] - 2023-10-08
 
 - Updating to latest version of Iosevka: v27.2.0
