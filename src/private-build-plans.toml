@@ -2,9 +2,9 @@
 family = "Monocode"
 spacing = "fixed"
 serifs = "sans"
-no-cv-ss = true
-export-glyph-names = true
-no-ligation = true
+noCvSs = true
+exportGlyphNames = true
+noLigation = true
 
 [buildPlans.monocode.variants.design]
 capital-g = "toothless-rounded-serifless-hooked"
@@ -78,6 +78,6 @@ shape = "italic"
 menu = "italic"
 css = "italic"
 
-[buildPlans.monocode.metric-override]
+[buildPlans.monocode.metricOverride]
 ascender = 750
 xHeight = 540
