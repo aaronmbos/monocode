@@ -78,7 +78,7 @@ jobs:
           name: ${{ steps.create_tag.outputs.tag }}
           body: "See changelog for details. https://github.com/aaronmbos/monocode/blob/main/CHANGELOG.md"
           files: |
-            /home/runner/work/monocode/Iosevka/dist/monocode/ttf/*.ttf
+            /home/runner/work/monocode/Iosevka/dist/monocode/TTF/*.ttf
 
   call-create-images-workflow:
     uses: ./.github/workflows/create-images.yml
