@@ -31,7 +31,7 @@ jobs:
 
       - name: Install font
         run: |
-          cd /home/runner/work/monocode/fonts/ttf
+          cd /home/runner/work/monocode/fonts/TTF
           sudo cp ./*.ttf /usr/local/share/fonts
           sudo fc-cache -f -v
 
