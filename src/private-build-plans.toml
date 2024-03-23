@@ -1,11 +1,11 @@
-[buildPlans.Monocode]
+[buildPlans.monocode]
 family = "Monocode"
 spacing = "fixed"
 serifs = "sans"
 noCvSs = true
 exportGlyphNames = true
 
-[buildPlans.Monocode.variants.design]
+[buildPlans.monocode.variants.design]
 capital-g = "toothless-rounded-serifless-hooked"
 capital-j = "flat-hook-serifed"
 capital-q = "crossing"
@@ -28,7 +28,7 @@ number-sign = "slanted"
 ampersand = "upper-open"
 question = "corner-flat-hooked"
 
-[buildPlans.Monocode.variants.italic]
+[buildPlans.monocode.variants.italic]
 e = "flat-crossbar"
 f = "flat-hook-extended-crossbar-at-x-height"
 i = "serifed-semi-tailed"
@@ -36,48 +36,48 @@ k = "symmetric-connected-serifless"
 l = "serifed-semi-tailed"
 y = "straight-serifless"
 
-[buildPlans.Monocode.weights.Light]
+[buildPlans.monocode.weights.Light]
 shape = 300
 menu = 300
 css = 300
 
-[buildPlans.Monocode.weights.Regular]
+[buildPlans.monocode.weights.Regular]
 shape = 400
 menu = 400
 css = 400
 
-[buildPlans.Monocode.weights.Medium]
+[buildPlans.monocode.weights.Medium]
 shape = 500
 menu = 500
 css = 500
 
-[buildPlans.Monocode.weights.SemiBold]
+[buildPlans.monocode.weights.SemiBold]
 shape = 600
 menu = 600
 css = 600
 
-[buildPlans.Monocode.weights.Bold]
+[buildPlans.monocode.weights.Bold]
 shape = 700
 menu = 700
 css = 700
 
-[buildPlans.Monocode.widths.Normal]
+[buildPlans.monocode.widths.Normal]
 shape = 600
 menu = 5
 css = "normal"
 
-[buildPlans.Monocode.slopes.Upright]
+[buildPlans.monocode.slopes.Upright]
 angle = 0
 shape = "upright"
 menu = "upright"
 css = "normal"
 
-[buildPlans.Monocode.slopes.Italic]
+[buildPlans.monocode.slopes.Italic]
 angle = 9.4
 shape = "italic"
 menu = "italic"
 css = "italic"
 
-[buildPlans.Monocode.metricOverride]
+[buildPlans.monocode.metricOverride]
 ascender = 750
 xHeight = 540
