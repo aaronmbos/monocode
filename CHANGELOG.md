@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v16.1.0] - 2024-09-21
+
+- Updating to latest version of Iosevka: v31.7.0
+
 ## [v16.0.0] - 2024-09-12
 
 - Updating lowercase `l` to use the serifed-flat-tailed variant
