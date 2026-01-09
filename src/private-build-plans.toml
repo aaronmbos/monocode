@@ -7,6 +7,9 @@ exportGlyphNames = true
 noLigation = true
 
 [buildPlans.monocode.variants.design]
+two = "straight-neck-serifless"
+three = "flat-top-serifless"
+five = "oblique-arched-serifless"
 capital-g = "toothless-rounded-serifless-hooked"
 capital-j = "flat-hook-serifed"
 capital-q = "crossing"
@@ -15,18 +18,13 @@ f = "flat-hook-serifless-crossbar-at-x-height"
 i = "hooky"
 j = "flat-hook-serifed"
 k = "symmetric-connected-serifless"
-l = "serifed-flat-tailed"
 t = "flat-hook-short-neck"
 w = "straight-flat-top-serifless"
-zero = "dotted"
-two = "straight-neck-serifless"
-three = "flat-top-serifless"
-five = "oblique-arched-serifless"
-asterisk = "penta-mid"
-ampersand = "upper-open"
 punctuation-dot = "square"
+asterisk = "penta-mid"
 brace = "curly-flat-boundary"
 number-sign = "slanted"
+ampersand = "upper-open"
 question = "corner-flat-hooked"
 
 [buildPlans.monocode.variants.italic]
